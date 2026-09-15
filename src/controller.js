@@ -5,7 +5,7 @@ export const CreateRequestHandler = async (req, res, next) => {
     const { title } = req.body || {};
     const createdTodo = await TodoListService.Add(title);
     return res.status(200).json({
-      message: "Todo was added successfully.",
+      message: "Todo was added Successfully.",
       todo: createdTodo.toObject(),
     });
   } catch (error) {
@@ -17,7 +17,7 @@ export const FetchAllRequestHandler = async (req, res, next) => {
   try {
     const todos = await TodoListService.FetchAll();
     return res.status(200).json({
-      message: "Todos fetched successfully.",
+      message: "Todos fetched Successfully.",
       todos: todos || [],
     });
   } catch (error) {
@@ -28,9 +28,10 @@ export const FetchAllRequestHandler = async (req, res, next) => {
 export const FetchRequestHandler = async (req, res, next) => {
   try {
     const id = req.params.id;
-    await TodoListService.Fetch(id);
+    const todo = await TodoListService.Fetch(id);
     return res.status(200).json({
-      message: "Todo deleted successfully.",
+      message: "Todo Fetched Successfully.",
+      todo,
     });
   } catch (error) {
     return next(error);
@@ -42,7 +43,7 @@ export const UpdateRequestHandler = async (req, res, next) => {
     const id = req.params.id;
     await TodoListService.ToggleComplete(id);
     return res.status(200).json({
-      message: "Todo Updated successfully.",
+      message: "Todo Updated Successfully.",
     });
   } catch (error) {
     return next(error);
@@ -54,7 +55,7 @@ export const DeleteRequestHandler = async (req, res, next) => {
     const id = req.params.id;
     await TodoListService.Delete(id);
     return res.status(200).json({
-      message: "Todo Deleted successfully.",
+      message: "Todo Deleted Successfully.",
     });
   } catch (error) {
     return next(error);
