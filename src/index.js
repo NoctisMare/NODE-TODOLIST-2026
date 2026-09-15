@@ -1,8 +1,11 @@
+import mongoose from "mongoose";
+import './config.js'
 import app from "./app.js";
 
 async function startServer() {
   try {
     const port = 3000;
+    await mongoose.connect('mongodb://localhost:27017/');
     const server = app.listen(port, () =>
       console.log(`Server listening on PORT:::${port}`),
     );
@@ -15,4 +18,4 @@ async function startServer() {
   }
 }
 
-startServer()
+startServer();

@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
+import router from "./router.js";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(
       }),
   }),
 );
+app.use("/api", router);
 app.get("/health", (req, res) =>
   res.status(200).json({
     message: "Welcome To Todo List Server.",
