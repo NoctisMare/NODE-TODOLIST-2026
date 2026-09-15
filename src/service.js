@@ -3,10 +3,22 @@ import * as TodoRepo from "./repo.js";
 
 function InvalidIDErrorCheck(id) {
   if (!id) {
-    throw new Error("Empty ID.");
+    const error = new Error("No Todo ID Specified.");
+    error.statusCode = 400;
+    throw error;
   }
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    throw new Error("Invalid Todo ID.");
+    const error = new Error("Invalid Todo ID.");
+    error.statusCode = 401;
+    throw error;
+  }
+}
+
+function TodoNotFoundError(todo) {
+  if (!todo) {
+    const error = new Error("Todo Not Found.");
+    error.statusCode = 404;
+    throw error;
   }
 }
 
@@ -17,15 +29,21 @@ export const Add = (title) => {
   }
   return TodoRepo.create(title);
 };
-export const Fetch = (id) => {
+export const Fetch = async (id) => {
   InvalidIDErrorCheck(id);
-  return TodoRepo.fetchById(id);
+  const todo = await TodoRepo.fetchById(id);
+  TodoNotFoundError(todo);
+  return todo;
 };
-export const Delete = (id) => {
+export const Delete = async (id) => {
   InvalidIDErrorCheck(id);
-  return TodoRepo.deleteById(id);
+  const todo = await TodoRepo.deleteById(id);
+  TodoNotFoundError(todo);
+  return todo;
 };
-export const ToggleComplete = (id) => {
+export const ToggleComplete = async (id) => {
   InvalidIDErrorCheck(id);
-  return TodoRepo.toggleCompleteById(id);
+  const todo = await TodoRepo.toggleCompleteById(id);
+  TodoNotFoundError(todo);
+  return todo;
 };
