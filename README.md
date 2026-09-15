@@ -1,16 +1,30 @@
-NODE-TODOLIST-2026
+Sure — here’s the cleaned-up version without the TODO section:
 
-A Todo List web application built using Node.js and Vanilla JavaScript.
+ README.md
 
-Tech Stack
+# NODE-TODOLIST-2026
 
-Frontend: HTML, CSS, Vanilla JavaScript
+ > 🚧 **Work in Progress**
 
-Backend: Node.js, Express.js
+ A simple **Todo List web application** built with **Node.js**, **Express.js**, **MongoDB**, and **Vanilla JavaScript**.
 
-Database: MongoDB with Mongoose
+ This project is currently under development and is **not yet complete**.
 
-Project Structure
+---
+
+ ## 🛠️ Tech Stack
+
+ | Layer | Technology |
+| --- | --- |
+| Frontend | HTML, CSS, Vanilla JavaScript |
+| Backend | Node.js, Express.js |
+| Database | MongoDB, Mongoose |
+
+---
+
+ ## 📂 Project Structure
+
+```
 NODE-TODOLIST-2026/
 ├── LICENSE
 ├── package.json
@@ -29,34 +43,55 @@ NODE-TODOLIST-2026/
     ├── repo.js
     ├── router.js
     └── service.js
+```
 
-Installation
+---
 
-Clone the repository and install the dependencies:
+ ## 🚀 Installation
 
+ Clone the repository:
+
+```
 git clone https://github.com/NoctisMare/NODE-TODOLIST-2026.git
 cd NODE-TODOLIST-2026
+```
+
+ Install the required dependencies:
+
+```
 npm install
+```
 
-Running the Project
+---
 
-Start the application:
+ ## ▶️ Running the Project
 
+ ### Start
+
+```
 npm start
+```
 
+ ### Development
 
-Or use development mode:
+ Run the application with Node.js watch mode:
 
+```
 npm run dev
+```
 
-Status
+---
 
-🚧 Work in Progress
+ ## 🚧 Project Status
 
-This project is currently unfinished and still under development.
+ **Work in Progress**
 
-More features, improvements, configuration, and implementation are still required before the application can be considered complete.
+ This project is still being developed and should be considered **unfinished**.
 
-License
+ There are still features, improvements, configuration, and deployment-related tasks that need to be implemented.
 
-See the LICENSE file for more information.
+---
+
+ ## 📄 License
+
+ This project is licensed under the terms specified in the `LICENSE` file.
